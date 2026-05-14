@@ -97,12 +97,24 @@ Refer directly to [the library source code](https://github.com/crisp-im/go-crisp
 * #### **Website Batch**
   * **Batch Resolve Conversations**: [Reference](https://docs.crisp.chat/references/rest-api/v1/#batch-resolve-items)
     * `client.Website.BatchResolveConversations(websiteID string, operation WebsiteBatchConversationsOperation) (*Response, error)`
+  * **Batch Unresolve Conversations**: [Reference](https://docs.crisp.chat/references/rest-api/v1/#batch-unresolve-items)
+    * `client.Website.BatchUnresolveConversations(websiteID string, operation WebsiteBatchConversationsOperation) (*Response, error)`
   * **Batch Read Conversations**: [Reference](https://docs.crisp.chat/references/rest-api/v1/#batch-read-items)
     * `client.Website.BatchReadConversations(websiteID string, operation WebsiteBatchConversationsOperation) (*Response, error)`
+  * **Batch Unread Conversations**: [Reference](https://docs.crisp.chat/references/rest-api/v1/#batch-unread-items)
+    * `client.Website.BatchUnreadConversations(websiteID string, operation WebsiteBatchConversationsOperation) (*Response, error)`
   * **Batch Remove Conversations**: [Reference](https://docs.crisp.chat/references/rest-api/v1/#batch-remove-items)
     * `client.Website.BatchRemoveConversations(websiteID string, operation WebsiteBatchConversationsOperation) (*Response, error)`
   * **Batch Remove People**: [Reference](https://docs.crisp.chat/references/rest-api/v1/#batch-remove-items)
     * `client.Website.BatchRemovePeople(websiteID string, people WebsiteBatchPeopleOperationInner) (*Response, error)`
+  * **Batch Report Conversations**: [Reference](https://docs.crisp.chat/references/rest-api/v1/#batch-report-items)
+    * `client.Website.BatchReportConversations(websiteID string, operation WebsiteBatchReportOperation) (*Response, error)`
+  * **Batch Block Conversations**: [Reference](https://docs.crisp.chat/references/rest-api/v1/#batch-block-items)
+    * `client.Website.BatchBlockConversations(websiteID string, operation WebsiteBatchBlockOperation) (*Response, error)`
+  * **Batch Routing Conversations**: [Reference](https://docs.crisp.chat/references/rest-api/v1/#batch-routing-items)
+    * `client.Website.BatchRoutingConversations(websiteID string, operation WebsiteBatchRoutingOperation) (*Response, error)`
+  * **Batch Inbox Conversations**: [Reference](https://docs.crisp.chat/references/rest-api/v1/#batch-inbox-items)
+    * `client.Website.BatchInboxConversations(websiteID string, operation WebsiteBatchInboxOperation) (*Response, error)`
 
 * #### **Website Availability**
   * **Get Website Availability Status**: [Reference](https://docs.crisp.chat/references/rest-api/v1/#get-website-availability-status)

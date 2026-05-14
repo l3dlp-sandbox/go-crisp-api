@@ -32,6 +32,35 @@ type WebsiteBatchPeopleOperationInnerSearch struct {
   Operator string          `json:"operator,omitempty"`
 }
 
+// WebsiteBatchReportOperation mapping
+type WebsiteBatchReportOperation struct {
+  Sessions []string `json:"sessions"`
+  Flag     string   `json:"flag"`
+}
+
+// WebsiteBatchBlockOperation mapping
+type WebsiteBatchBlockOperation struct {
+  Sessions []string `json:"sessions"`
+  Blocked  bool     `json:"blocked"`
+}
+
+// WebsiteBatchRoutingOperationAssigned mapping
+type WebsiteBatchRoutingOperationAssigned struct {
+  UserID string `json:"user_id"`
+}
+
+// WebsiteBatchRoutingOperation mapping
+type WebsiteBatchRoutingOperation struct {
+  Sessions []string                              `json:"sessions"`
+  Assigned *WebsiteBatchRoutingOperationAssigned `json:"assigned"`
+}
+
+// WebsiteBatchInboxOperation mapping
+type WebsiteBatchInboxOperation struct {
+  Sessions []string `json:"sessions"`
+  InboxID  *string  `json:"inbox_id"`
+}
+
 // BatchResolveConversations resolves given (or all) items in website (conversation variant).
 func (service *WebsiteService) BatchResolveConversations(websiteID string, operation WebsiteBatchConversationsOperation) (*Response, error) {
   url := fmt.Sprintf("website/%s/batch/resolve", websiteID)
@@ -40,9 +69,25 @@ func (service *WebsiteService) BatchResolveConversations(websiteID string, opera
   return service.client.Do(req, nil)
 }
 
+// BatchUnresolveConversations unresolves given items in website (conversation variant).
+func (service *WebsiteService) BatchUnresolveConversations(websiteID string, operation WebsiteBatchConversationsOperation) (*Response, error) {
+  url := fmt.Sprintf("website/%s/batch/unresolve", websiteID)
+  req, _ := service.client.NewRequest("PATCH", url, operation)
+
+  return service.client.Do(req, nil)
+}
+
 // BatchReadConversations marks given (or all) items as read in website (conversation variant).
 func (service *WebsiteService) BatchReadConversations(websiteID string, operation WebsiteBatchConversationsOperation) (*Response, error) {
   url := fmt.Sprintf("website/%s/batch/read", websiteID)
+  req, _ := service.client.NewRequest("PATCH", url, operation)
+
+  return service.client.Do(req, nil)
+}
+
+// BatchUnreadConversations marks given items as unread in website (conversation variant).
+func (service *WebsiteService) BatchUnreadConversations(websiteID string, operation WebsiteBatchConversationsOperation) (*Response, error) {
+  url := fmt.Sprintf("website/%s/batch/unread", websiteID)
   req, _ := service.client.NewRequest("PATCH", url, operation)
 
   return service.client.Do(req, nil)
@@ -60,6 +105,38 @@ func (service *WebsiteService) BatchRemoveConversations(websiteID string, operat
 func (service *WebsiteService) BatchRemovePeople(websiteID string, people WebsiteBatchPeopleOperationInner) (*Response, error) {
   url := fmt.Sprintf("website/%s/batch/remove", websiteID)
   req, _ := service.client.NewRequest("PATCH", url, WebsiteBatchPeopleOperation{People: &people})
+
+  return service.client.Do(req, nil)
+}
+
+// BatchReportConversations reports given items in website (conversation variant).
+func (service *WebsiteService) BatchReportConversations(websiteID string, operation WebsiteBatchReportOperation) (*Response, error) {
+  url := fmt.Sprintf("website/%s/batch/report", websiteID)
+  req, _ := service.client.NewRequest("POST", url, operation)
+
+  return service.client.Do(req, nil)
+}
+
+// BatchBlockConversations blocks or unblocks given items in website (conversation variant).
+func (service *WebsiteService) BatchBlockConversations(websiteID string, operation WebsiteBatchBlockOperation) (*Response, error) {
+  url := fmt.Sprintf("website/%s/batch/block", websiteID)
+  req, _ := service.client.NewRequest("PATCH", url, operation)
+
+  return service.client.Do(req, nil)
+}
+
+// BatchRoutingConversations assigns or unassigns operator for given items in website (conversation variant).
+func (service *WebsiteService) BatchRoutingConversations(websiteID string, operation WebsiteBatchRoutingOperation) (*Response, error) {
+  url := fmt.Sprintf("website/%s/batch/routing", websiteID)
+  req, _ := service.client.NewRequest("PATCH", url, operation)
+
+  return service.client.Do(req, nil)
+}
+
+// BatchInboxConversations moves given items to a different inbox in website (conversation variant).
+func (service *WebsiteService) BatchInboxConversations(websiteID string, operation WebsiteBatchInboxOperation) (*Response, error) {
+  url := fmt.Sprintf("website/%s/batch/inbox", websiteID)
+  req, _ := service.client.NewRequest("PATCH", url, operation)
 
   return service.client.Do(req, nil)
 }
