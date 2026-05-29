@@ -115,6 +115,14 @@ Refer directly to [the library source code](https://github.com/crisp-im/go-crisp
     * `client.Website.BatchRoutingConversations(websiteID string, operation WebsiteBatchRoutingOperation) (*Response, error)`
   * **Batch Inbox Conversations**: [Reference](https://docs.crisp.chat/references/rest-api/v1/#batch-inbox-items)
     * `client.Website.BatchInboxConversations(websiteID string, operation WebsiteBatchInboxOperation) (*Response, error)`
+  * **Batch Update Conversations Data**: [Reference](https://docs.crisp.chat/references/rest-api/v1/#batch-data-items)
+    * `client.Website.BatchUpdateConversationsData(websiteID string, operation WebsiteBatchConversationsDataOperation) (*Response, error)`
+  * **Batch Update People Data**: [Reference](https://docs.crisp.chat/references/rest-api/v1/#batch-data-items)
+    * `client.Website.BatchUpdatePeopleData(websiteID string, people WebsiteBatchPeopleOperationInner, data WebsiteBatchDataPayload) (*Response, error)`
+  * **Batch Update Conversations Segments**: [Reference](https://docs.crisp.chat/references/rest-api/v1/#batch-segments-items)
+    * `client.Website.BatchUpdateConversationsSegments(websiteID string, operation WebsiteBatchConversationsSegmentsOperation) (*Response, error)`
+  * **Batch Update People Segments**: [Reference](https://docs.crisp.chat/references/rest-api/v1/#batch-segments-items)
+    * `client.Website.BatchUpdatePeopleSegments(websiteID string, people WebsiteBatchPeopleOperationInner, segments []string) (*Response, error)`
 
 * #### **Website Availability**
   * **Get Website Availability Status**: [Reference](https://docs.crisp.chat/references/rest-api/v1/#get-website-availability-status)

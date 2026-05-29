@@ -61,6 +61,33 @@ type WebsiteBatchInboxOperation struct {
   InboxID  *string  `json:"inbox_id"`
 }
 
+// WebsiteBatchDataPayload mapping
+type WebsiteBatchDataPayload map[string]interface{}
+
+// WebsiteBatchConversationsDataOperation mapping
+type WebsiteBatchConversationsDataOperation struct {
+  Sessions []string                `json:"sessions"`
+  Data     WebsiteBatchDataPayload `json:"data"`
+}
+
+// WebsiteBatchPeopleDataOperation mapping
+type WebsiteBatchPeopleDataOperation struct {
+  People *WebsiteBatchPeopleOperationInner `json:"people,omitempty"`
+  Data   WebsiteBatchDataPayload           `json:"data"`
+}
+
+// WebsiteBatchConversationsSegmentsOperation mapping
+type WebsiteBatchConversationsSegmentsOperation struct {
+  Sessions []string `json:"sessions"`
+  Segments []string `json:"segments"`
+}
+
+// WebsiteBatchPeopleSegmentsOperation mapping
+type WebsiteBatchPeopleSegmentsOperation struct {
+  People   *WebsiteBatchPeopleOperationInner `json:"people,omitempty"`
+  Segments []string                          `json:"segments"`
+}
+
 // BatchResolveConversations resolves given (or all) items in website (conversation variant).
 func (service *WebsiteService) BatchResolveConversations(websiteID string, operation WebsiteBatchConversationsOperation) (*Response, error) {
   url := fmt.Sprintf("website/%s/batch/resolve", websiteID)
@@ -137,6 +164,38 @@ func (service *WebsiteService) BatchRoutingConversations(websiteID string, opera
 func (service *WebsiteService) BatchInboxConversations(websiteID string, operation WebsiteBatchInboxOperation) (*Response, error) {
   url := fmt.Sprintf("website/%s/batch/inbox", websiteID)
   req, _ := service.client.NewRequest("PATCH", url, operation)
+
+  return service.client.Do(req, nil)
+}
+
+// BatchUpdateConversationsData updates custom data on given items in website (conversation variant).
+func (service *WebsiteService) BatchUpdateConversationsData(websiteID string, operation WebsiteBatchConversationsDataOperation) (*Response, error) {
+  url := fmt.Sprintf("website/%s/batch/data", websiteID)
+  req, _ := service.client.NewRequest("PATCH", url, operation)
+
+  return service.client.Do(req, nil)
+}
+
+// BatchUpdatePeopleData updates custom data on given items in website (people variant).
+func (service *WebsiteService) BatchUpdatePeopleData(websiteID string, people WebsiteBatchPeopleOperationInner, data WebsiteBatchDataPayload) (*Response, error) {
+  url := fmt.Sprintf("website/%s/batch/data", websiteID)
+  req, _ := service.client.NewRequest("PATCH", url, WebsiteBatchPeopleDataOperation{People: &people, Data: data})
+
+  return service.client.Do(req, nil)
+}
+
+// BatchUpdateConversationsSegments updates segments on given items in website (conversation variant).
+func (service *WebsiteService) BatchUpdateConversationsSegments(websiteID string, operation WebsiteBatchConversationsSegmentsOperation) (*Response, error) {
+  url := fmt.Sprintf("website/%s/batch/segments", websiteID)
+  req, _ := service.client.NewRequest("PATCH", url, operation)
+
+  return service.client.Do(req, nil)
+}
+
+// BatchUpdatePeopleSegments updates segments on given items in website (people variant).
+func (service *WebsiteService) BatchUpdatePeopleSegments(websiteID string, people WebsiteBatchPeopleOperationInner, segments []string) (*Response, error) {
+  url := fmt.Sprintf("website/%s/batch/segments", websiteID)
+  req, _ := service.client.NewRequest("PATCH", url, WebsiteBatchPeopleSegmentsOperation{People: &people, Segments: segments})
 
   return service.client.Do(req, nil)
 }
