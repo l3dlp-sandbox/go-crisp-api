@@ -1076,8 +1076,8 @@ type ConversationCallSignalingPayload struct {
 
 // ConversationToolRequestPayload mapping
 type ConversationToolRequestPayload struct {
-  Command  string      `json:"command,omitempty"`
-  Payload  *interface  `json:"payload,omitempty"`
+  Command  string        `json:"command,omitempty"`
+  Payload  *interface{}  `json:"payload,omitempty"`
 }
 
 // ConversationWidgetActionData mapping
