@@ -1074,6 +1074,12 @@ type ConversationCallSignalingPayload struct {
   Payload  interface{}  `json:"payload,omitempty"`
 }
 
+// ConversationToolRequestPayload mapping
+type ConversationToolRequestPayload struct {
+  Command  string      `json:"command,omitempty"`
+  Payload  *interface  `json:"payload,omitempty"`
+}
+
 // ConversationWidgetActionData mapping
 type ConversationWidgetActionData struct {
   Data  *ConversationWidgetAction  `json:"data,omitempty"`
@@ -2174,6 +2180,15 @@ func (service *WebsiteService) AbortOngoingCallSessionForConversation(websiteID 
 func (service *WebsiteService) TransmitSignalingOnOngoingCallSession(websiteID string, sessionID string, callID string, payload ConversationCallSignalingPayload) (*Response, error) {
   url := fmt.Sprintf("website/%s/conversation/%s/call/%s", websiteID, sessionID, callID)
   req, _ := service.client.NewRequest("PATCH", url, payload)
+
+  return service.client.Do(req, nil)
+}
+
+
+// RequestToolCallForConversation requests a new WebMCP tool call on the chatbox widget for conversation.
+func (service *WebsiteService) RequestToolCallForConversation(websiteID string, sessionID string, command string, payload *interface{}) (*Response, error) {
+  url := fmt.Sprintf("website/%s/conversation/%s/tool", websiteID, sessionID)
+  req, _ := service.client.NewRequest("POST", url, ConversationToolRequestPayload{Command: command, Payload: payload})
 
   return service.client.Do(req, nil)
 }

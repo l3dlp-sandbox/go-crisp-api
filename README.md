@@ -397,6 +397,8 @@ Refer directly to [the library source code](https://github.com/crisp-im/go-crisp
     * `client.Website.AbortOngoingCallSessionForConversation(websiteID string, sessionID string, callID string, user *ConversationMessageUser, origin *string) (*Response, error)`
   * **Transmit Signaling On Ongoing Call Session**: [Reference](https://docs.crisp.chat/references/rest-api/v1/#transmit-signaling-on-ongoing-call-session)
     * `client.Website.TransmitSignalingOnOngoingCallSession(websiteID string, sessionID string, callID string, payload ConversationCallSignalingPayload) (*Response, error)`
+  * **Request Tool Call For Conversation**: [Reference](https://docs.crisp.chat/references/rest-api/v1/#request-tool-call-for-conversation)
+    * `client.Website.RequestToolCallForConversation(websiteID string, sessionID string, command string, payload *interface{}) (*Response, error)`
   * **Deliver Widget Button Action For Conversation**: [Reference](https://docs.crisp.chat/references/rest-api/v1/#deliver-widget-button-action-for-conversation)
     * `client.Website.DeliverWidgetButtonActionForConversation(websiteID string, sessionID string, pluginID string, sectionID string, itemID string, data interface{}, value *interface{}) (*ConversationWidgetAction, *Response, error)`
   * **Deliver Widget Data Fetch Action For Conversation**: [Reference](https://docs.crisp.chat/references/rest-api/v1/#deliver-widget-data-action-for-conversation)
