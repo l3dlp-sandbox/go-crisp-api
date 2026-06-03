@@ -61,6 +61,7 @@ type HelpdeskLocaleArticle struct {
   Status       *string  `json:"status,omitempty"`
   Visibility   *string  `json:"visibility,omitempty"`
   Visits       *uint32  `json:"visits,omitempty"`
+  Featured     *bool    `json:"featured,omitempty"`
   Order        *uint16  `json:"order,omitempty"`
   URL          *string  `json:"url,omitempty"`
   CreatedAt    *uint64  `json:"created_at,omitempty"`
