@@ -19,10 +19,12 @@ type WebsiteData struct {
 
 // Website mapping
 type Website struct {
-  WebsiteID  *string  `json:"website_id,omitempty"`
-  Name       *string  `json:"name,omitempty"`
-  Domain     *string  `json:"domain,omitempty"`
-  Logo       *string  `json:"logo,omitempty"`
+  WebsiteID      *string  `json:"website_id,omitempty"`
+  Name           *string  `json:"name,omitempty"`
+  Domain         *string  `json:"domain,omitempty"`
+  Logo           *string  `json:"logo,omitempty"`
+  Verified       *bool    `json:"verified,omitempty"`
+  Institutional  *bool    `json:"institutional,omitempty"`
 }
 
 // WebsiteCreate mapping
