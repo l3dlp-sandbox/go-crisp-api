@@ -1528,6 +1528,36 @@ func (service *WebsiteService) GetMessagesInConversationBefore(websiteID string,
 }
 
 
+// GetMessagesInConversationAfter resolves messages in an existing conversation (after variant).
+func (service *WebsiteService) GetMessagesInConversationAfter(websiteID string, sessionID string, timestampAfter uint) (*[]ConversationMessage, *Response, error) {
+  url := fmt.Sprintf("website/%s/conversation/%s/messages?timestamp_after=%d", websiteID, sessionID, timestampAfter)
+  req, _ := service.client.NewRequest("GET", url, nil)
+
+  messages := new(ConversationMessagesData)
+  resp, err := service.client.Do(req, messages)
+  if err != nil {
+    return nil, resp, err
+  }
+
+  return messages.Data, resp, err
+}
+
+
+// GetMessagesInConversationAround resolves messages in an existing conversation (around variant).
+func (service *WebsiteService) GetMessagesInConversationAround(websiteID string, sessionID string, timestampAround uint) (*[]ConversationMessage, *Response, error) {
+  url := fmt.Sprintf("website/%s/conversation/%s/messages?timestamp_around=%d", websiteID, sessionID, timestampAround)
+  req, _ := service.client.NewRequest("GET", url, nil)
+
+  messages := new(ConversationMessagesData)
+  resp, err := service.client.Do(req, messages)
+  if err != nil {
+    return nil, resp, err
+  }
+
+  return messages.Data, resp, err
+}
+
+
 // SendTextMessageInConversation sends a message in an existing conversation (text variant).
 func (service *WebsiteService) SendTextMessageInConversation(websiteID string, sessionID string, message ConversationTextMessageNew) (*ConversationMessageDispatched, *Response, error) {
   url := fmt.Sprintf("website/%s/conversation/%s/message", websiteID, sessionID)

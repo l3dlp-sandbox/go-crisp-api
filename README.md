@@ -285,6 +285,10 @@ Refer directly to [the library source code](https://github.com/crisp-im/go-crisp
     * `client.Website.GetMessagesInConversationLast(websiteID string, sessionID string) (*[]ConversationMessage, *Response, error)`
   * **Get Messages In Conversation (Before Variant)**: [Reference](https://docs.crisp.chat/references/rest-api/v1/#get-messages-in-conversation)
     * `client.Website.GetMessagesInConversationBefore(websiteID string, sessionID string, timestampBefore uint) (*[]ConversationMessage, *Response, error)`
+  * **Get Messages In Conversation (After Variant)**: [Reference](https://docs.crisp.chat/references/rest-api/v1/#get-messages-in-conversation)
+    * `client.Website.GetMessagesInConversationAfter(websiteID string, sessionID string, timestampAfter uint) (*[]ConversationMessage, *Response, error)`
+  * **Get Messages In Conversation (Around Variant)**: [Reference](https://docs.crisp.chat/references/rest-api/v1/#get-messages-in-conversation)
+    * `client.Website.GetMessagesInConversationAround(websiteID string, sessionID string, timestampAround uint) (*[]ConversationMessage, *Response, error)`
   * **⭐ Send A Message In Conversation (Text Variant)**: [Reference](https://docs.crisp.chat/references/rest-api/v1/#send-a-message-in-conversation)
     * `client.Website.SendTextMessageInConversation(websiteID string, sessionID string, message ConversationTextMessageNew) (*ConversationMessageDispatched, *Response, error)`
   * **⭐ Send A Message In Conversation (File Variant)**: [Reference](https://docs.crisp.chat/references/rest-api/v1/#send-a-message-in-conversation)
