@@ -56,6 +56,7 @@ type WebsiteSettingsInbox struct {
 type WebsiteSettingsEmails struct {
   Rating      *bool  `json:"rating,omitempty"`
   Transcript  *bool  `json:"transcript,omitempty"`
+  Trackers    *bool  `json:"trackers,omitempty"`
   JunkFilter  *bool  `json:"junk_filter,omitempty"`
 }
 
@@ -143,6 +144,7 @@ type WebsiteSettingsUpdateInbox struct {
 type WebsiteSettingsUpdateEmails struct {
   Rating      bool  `json:"rating,omitempty"`
   Transcript  bool  `json:"transcript,omitempty"`
+  Trackers    bool  `json:"trackers,omitempty"`
   JunkFilter  bool  `json:"junk_filter,omitempty"`
 }
 
