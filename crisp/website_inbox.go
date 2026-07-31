@@ -41,12 +41,14 @@ type WebsiteInboxNew struct {
 
 // WebsiteInboxItem mapping
 type WebsiteInboxItem struct {
-  Name        *string                       `json:"name,omitempty"`
-  Emoji       *string                       `json:"emoji,omitempty"`
-  Order       *uint16                       `json:"order,omitempty"`
-  Operators   *[]string                     `json:"operators,omitempty"`
-  Operator    *string                       `json:"operator,omitempty"`
-  Conditions  *[]WebsiteInboxItemCondition  `json:"conditions,omitempty"`
+  Name           *string                       `json:"name,omitempty"`
+  Emoji          *string                       `json:"emoji,omitempty"`
+  Order          *uint16                       `json:"order,omitempty"`
+  Operators      *[]string                     `json:"operators,omitempty"`
+  Teams          *[]string                     `json:"teams,omitempty"`
+  TeamOperators  *[]string                     `json:"team_operators,omitempty"`
+  Operator       *string                       `json:"operator,omitempty"`
+  Conditions     *[]WebsiteInboxItemCondition  `json:"conditions,omitempty"`
 }
 
 // WebsiteInboxItemCondition mapping
