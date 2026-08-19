@@ -18,15 +18,16 @@ type WebsiteSettingsData struct {
 
 // WebsiteSettings mapping
 type WebsiteSettings struct {
-  WebsiteID  *string                  `json:"website_id,omitempty"`
-  Name       *string                  `json:"name,omitempty"`
-  Domain     *string                  `json:"domain,omitempty"`
-  Logo       *string                  `json:"logo,omitempty"`
-  Audit      *WebsiteSettingsAudit    `json:"audit,omitempty"`
-  Contact    *WebsiteSettingsContact  `json:"contact,omitempty"`
-  Inbox      *WebsiteSettingsInbox    `json:"inbox,omitempty"`
-  Emails     *WebsiteSettingsEmails   `json:"emails,omitempty"`
-  Chatbox    *WebsiteSettingsChatbox  `json:"chatbox,omitempty"`
+  WebsiteID         *string                  `json:"website_id,omitempty"`
+  Name              *string                  `json:"name,omitempty"`
+  Domain            *string                  `json:"domain,omitempty"`
+  DomainAlternates  *[]string                `json:"domain_alternates,omitempty"`
+  Logo              *string                  `json:"logo,omitempty"`
+  Audit             *WebsiteSettingsAudit    `json:"audit,omitempty"`
+  Contact           *WebsiteSettingsContact  `json:"contact,omitempty"`
+  Inbox             *WebsiteSettingsInbox    `json:"inbox,omitempty"`
+  Emails            *WebsiteSettingsEmails   `json:"emails,omitempty"`
+  Chatbox           *WebsiteSettingsChatbox  `json:"chatbox,omitempty"`
 }
 
 // WebsiteSettingsAudit mapping
@@ -83,6 +84,7 @@ type WebsiteSettingsChatbox struct {
   VisitorCompose       *bool      `json:"visitor_compose,omitempty"`
   FileTransfer         *bool      `json:"file_transfer,omitempty"`
   AudioRecord          *bool      `json:"audio_record,omitempty"`
+  GuardLevel           *string    `json:"guard_level,omitempty"`
   ModeInitial          *string    `json:"mode_initial,omitempty"`
   Home                 *bool      `json:"home,omitempty"`
   OverlaySearch        *bool      `json:"overlay_search,omitempty"`
@@ -106,15 +108,16 @@ type WebsiteSettingsChatbox struct {
 
 // WebsiteSettingsUpdate mapping
 type WebsiteSettingsUpdate struct {
-  WebsiteID  string                         `json:"website_id,omitempty"`
-  Name       string                         `json:"name,omitempty"`
-  Domain     string                         `json:"domain,omitempty"`
-  Logo       string                         `json:"logo,omitempty"`
-  Audit      *WebsiteSettingsUpdateAudit    `json:"audit,omitempty"`
-  Contact    *WebsiteSettingsUpdateContact  `json:"contact,omitempty"`
-  Inbox      *WebsiteSettingsUpdateInbox    `json:"inbox,omitempty"`
-  Emails     *WebsiteSettingsUpdateEmails   `json:"emails,omitempty"`
-  Chatbox    *WebsiteSettingsUpdateChatbox  `json:"chatbox,omitempty"`
+  WebsiteID         string                         `json:"website_id,omitempty"`
+  Name              string                         `json:"name,omitempty"`
+  Domain            string                         `json:"domain,omitempty"`
+  DomainAlternates  []string                       `json:"domain_alternates,omitempty"`
+  Logo              string                         `json:"logo,omitempty"`
+  Audit             *WebsiteSettingsUpdateAudit    `json:"audit,omitempty"`
+  Contact           *WebsiteSettingsUpdateContact  `json:"contact,omitempty"`
+  Inbox             *WebsiteSettingsUpdateInbox    `json:"inbox,omitempty"`
+  Emails            *WebsiteSettingsUpdateEmails   `json:"emails,omitempty"`
+  Chatbox           *WebsiteSettingsUpdateChatbox  `json:"chatbox,omitempty"`
 }
 
 // WebsiteSettingsUpdateAudit mapping
@@ -171,6 +174,7 @@ type WebsiteSettingsUpdateChatbox struct {
   VisitorCompose       bool       `json:"visitor_compose,omitempty"`
   FileTransfer         bool       `json:"file_transfer,omitempty"`
   AudioRecord          bool       `json:"audio_record,omitempty"`
+  GuardLevel           string     `json:"guard_level,omitempty"`
   ModeInitial          string     `json:"mode_initial,omitempty"`
   Home                 bool       `json:"home,omitempty"`
   OverlaySearch        bool       `json:"overlay_search,omitempty"`
