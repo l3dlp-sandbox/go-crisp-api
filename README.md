@@ -148,6 +148,20 @@ Refer directly to [the library source code](https://github.com/crisp-im/go-crisp
   * **Unlink Operator From Website**: [Reference](https://docs.crisp.chat/references/rest-api/v1/#unlink-operator-from-website)
     * `client.Website.UnlinkOperatorFromWebsite(websiteID string, userID string) (*Response, error)`
 
+* #### **Website Team**
+  * **List Teams**: [Reference](https://docs.crisp.chat/references/rest-api/v1/#list-teams)
+    * `client.Website.ListTeams(websiteID string, pageNumber uint) (*[]WebsiteTeam, *Response, error)`
+  * **Create A New Team**: [Reference](https://docs.crisp.chat/references/rest-api/v1/#create-a-new-team)
+    * `client.Website.CreateNewTeam(websiteID string, team WebsiteTeamItem) (*WebsiteTeamNew, *Response, error)`
+  * **Check If Team Exists**: [Reference](https://docs.crisp.chat/references/rest-api/v1/#check-if-team-exists)
+    * `client.Website.CheckTeamExists(websiteID string, teamID string) (*Response, error)`
+  * **Get A Team**: [Reference](https://docs.crisp.chat/references/rest-api/v1/#get-a-team)
+    * `client.Website.GetTeam(websiteID string, teamID string) (*WebsiteTeam, *Response, error)`
+  * **Save A Team**: [Reference](https://docs.crisp.chat/references/rest-api/v1/#save-a-team)
+    * `client.Website.SaveTeam(websiteID string, teamID string, team WebsiteTeamItem) (*Response, error)`
+  * **Remove A Team**: [Reference](https://docs.crisp.chat/references/rest-api/v1/#remove-a-team)
+    * `client.Website.DeleteTeam(websiteID string, teamID string) (*Response, error)`
+
 * #### **Website Verify**
   * **Get Verify Settings**: [Reference](https://docs.crisp.chat/references/rest-api/v1/#get-verify-settings)
     * `client.Website.GetVerifySettings(websiteID string) (*WebsiteVerifySettings, *Response, error)`
